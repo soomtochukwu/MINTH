@@ -163,7 +163,7 @@ export default function Home() {
               id="url"
               onInput={async (e) => {
                 const val = e.currentTarget.value;
-                setImageUrl(val);
+                setImageUrl("");
                 setImage(null);
                 const response = await fetch(val, {
                     mode: "no-cors",
@@ -174,6 +174,7 @@ export default function Home() {
                     `${imageUrl.slice(imageUrl.lastIndexOf("/") + 1)}`,
                     { type: blob.type }
                   );
+                setImageUrl(val);
                 setImage(file);
                 console.log(file);
               }}
