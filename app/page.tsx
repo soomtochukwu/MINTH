@@ -165,9 +165,7 @@ export default function Home() {
                 const val = e.currentTarget.value;
                 setImageUrl("");
                 setImage(null);
-                const response = await fetch(val, {
-                    mode: "no-cors",
-                  }),
+                const response = await fetch(val),
                   blob = await response.blob(),
                   file = new File(
                     [blob],
