@@ -55,7 +55,7 @@ export default function Home() {
             description: `Minted for ${address} by Minth`,
             // @ts-ignore
             image: `ipfs://${NFT_image.IpfsHash}`,
-            name: "Minth",
+            name: address?.slice(0, 8),
           },
           metadataBlob = new Blob([JSON.stringify(metadata)], {
             type: "application/json",
