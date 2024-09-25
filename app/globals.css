@@ -53,7 +53,7 @@ body {
 *,
 button,
 a {
-  cursor: url("/art0.png"), default;
+  cursor: url("/art0.png"), auto;
 }
 
 .art01 {
