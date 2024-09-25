@@ -244,7 +244,7 @@ export default function Home() {
         </div>
 
         {/* right pane */}
-        <div className=" dark bg-gray-100 flex justify-center items-center shadow-gray-600 shadow-2xl md:min-w-96 md:min-h-96 w-fit border rounded-xl">
+        <div className="tr dark bg-gray-100 flex justify-center items-center shadow-gray-600 shadow-2xl md:min-w-96 md:min-h-96 w-fit border rounded-xl">
           <div className=" absolute ">
             <pre>
               {imageUrl

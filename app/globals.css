@@ -39,6 +39,9 @@ body {
   transform: scale(1);
   max-height: 700px;
 }
+.tr {
+  transition: .7s;
+}
 
 @layer utilities {
   .text-balance {
