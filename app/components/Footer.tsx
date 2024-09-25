@@ -23,6 +23,15 @@ const Footer = () => {
           alt={":octocat:"}
         ></Image>
       </Link>
+
+      <Link
+        target="meetMe"
+        href={
+          "https://sepolia.etherscan.io/address/0x884c8cC437bD61C7d7Ed04720F60d657E0eCdbE3#code"
+        }
+      >
+        The smart contract 🧩
+      </Link>
     </div>
   );
 };
