@@ -35,7 +35,7 @@ export default function Body({
           return (
             <Image
               key={index + path}
-              className={`fixed invisible ${path} tail`}
+              className={`fixed invisible z-20 ${path} tail`}
               src={`/${path}.png`}
               alt={path}
               width={25}
