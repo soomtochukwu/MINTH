@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="h-14 backdrop-blur-md flex justify-center items-center  md:sticky *:bg-gray-700  *:p-1 *:px-3 *:text-white *:rounded-md lg:space-x-36 space-x-10 bottom-0 w-full text-center">
+    <div className="h-14 backdrop-blur-md md:flex justify-center items-center  md:sticky *:bg-gray-700  *:p-1 *:px-3 *:text-white *:rounded-md lg:space-x-36 hidden space-x-10 bottom-0 w-full text-center">
       <div>Meet me {"  -->"}</div>
 
       <Link target="meetMe" href={"https://somtochukwu-ko.vercel.app/"}>
