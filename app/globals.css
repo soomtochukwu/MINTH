@@ -39,6 +39,7 @@ body {
   transform: scale(1);
   max-height: 700px;
 }
+
 .tr {
   transition: .7s;
 }
@@ -47,4 +48,22 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+*,
+button,
+a {
+  cursor: url("/art0.png"), default;
+}
+
+.art01 {
+  transition: .1s;
+}
+
+.art02 {
+  transition: .2s;
+}
+
+.art03 {
+  transition: .3s;
 }
