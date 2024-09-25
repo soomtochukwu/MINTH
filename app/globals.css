@@ -29,6 +29,17 @@ body {
   background-repeat: no-repeat;
 }
 
+* {
+  transition: .4s;
+}
+
+.mh {
+  height: fit-content;
+  transition: .7s;
+  transform: scale(1);
+  max-height: 700px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
