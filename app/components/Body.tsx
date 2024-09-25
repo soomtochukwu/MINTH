@@ -31,7 +31,6 @@ export default function Body({
     >
       {/* mousys */}
       <div>
-        <span className="fixed top-0 left-0 coord z-10" id="coord"></span>
         {tails.map((path, index) => {
           return (
             <Image
