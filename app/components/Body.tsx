@@ -3,10 +3,10 @@
 import localFont from "next/font/local";
 import "../globals.css";
 import Footer from "./Footer";
+import { coOrdinate, coOrdinateOut } from "../utils/mousy";
 
 import { Providers } from "../providers";
-import { coOrdinate } from "../utils/mousy";
-import Image from "next/image";
+import Mousy from "./Mousy";
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -17,7 +17,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-const tails = ["art03", "art02", "art01"];
 
 export default function Body({
   children,
@@ -27,23 +26,11 @@ export default function Body({
   return (
     <body
       onMouseMove={coOrdinate}
+      onMouseOut={coOrdinateOut}
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       {/* mousys */}
-      <div>
-        {tails.map((path, index) => {
-          return (
-            <Image
-              key={index + path}
-              className={`fixed invisible z-20 ${path} tail`}
-              src={`/${path}.png`}
-              alt={path}
-              width={25}
-              height={25}
-            ></Image>
-          );
-        })}
-      </div>
+      <Mousy></Mousy>
       <Providers>{children}</Providers>
       <Footer />
     </body>
