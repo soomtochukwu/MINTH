@@ -5,6 +5,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="h-14 backdrop-blur-md md:flex justify-center items-center  md:sticky *:bg-gray-700 *:p-1 *:px-3 *:w-fit *:text-white *:rounded-md lg:space-x-36 *:inline-flex *:m-1 md:space-x-10 md:bottom-0 w-full text-center">
+      <div></div>
       <div>Meet me {"  -->"}</div>
 
       <Link target="meetMe" href={"https://somtochukwu-ko.vercel.app/"}>
