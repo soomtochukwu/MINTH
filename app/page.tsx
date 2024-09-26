@@ -132,14 +132,15 @@ export default function Home() {
       (
         document.getElementById("imagePreview") as HTMLElement
       ).style.transition = "0.7s";
-      imgPre.style.scale = "1";
+      imgPre.style.width = "100%";
+      imgPre.style.height = "100%";
     }
   }, [image, imageUrl]);
   return (
     <div className="h-screen">
-      <div className="backdrop-blur-md text-center md:fixed w-full font-bold p-6 text-5xl font-sans">
+      <div className="backdrop-blur-md text-center md:fixed w-full font-bold p-6 text-2xl md:text-5xl font-sans">
         <Link href={"/"}>Welcome to Minth</Link>
-        <div className="font-extralight text-sm ">
+        <div className="font-extralight text-xs md:text-sm ">
           ...Turn your fav. images into NFTs 😃
         </div>
       </div>
@@ -159,7 +160,10 @@ export default function Home() {
                   ).style.transition = "0s";
                   (
                     document.getElementById("imagePreview") as HTMLElement
-                  ).style.scale = "0";
+                  ).style.width = "0px";
+                  (
+                    document.getElementById("imagePreview") as HTMLElement
+                  ).style.height = "0px";
                 }
                 // @ts-ignore
                 const file = e.target.files[0];
@@ -189,7 +193,10 @@ export default function Home() {
                   ).style.transition = "0s";
                   (
                     document.getElementById("imagePreview") as HTMLElement
-                  ).style.scale = "0";
+                  ).style.width = "0px";
+                  (
+                    document.getElementById("imagePreview") as HTMLElement
+                  ).style.height = "0px";
                 }
                 const response = await fetch(val),
                   blob = await response.blob(),
@@ -257,7 +264,7 @@ export default function Home() {
           {imageUrl ? (
             <img
               id="imagePreview"
-              className="z-10 rounded-2xl scale-0  mh"
+              className="z-10 rounded-2xl mh"
               alt="Preview"
               src={imageUrl}
               // width={500}

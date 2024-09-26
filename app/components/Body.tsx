@@ -2,7 +2,6 @@
 
 import localFont from "next/font/local";
 import "../globals.css";
-import Footer from "./Footer";
 import { coOrdinate, coOrdinateOut } from "../utils/mousy";
 
 import { Providers } from "../providers";
@@ -32,7 +31,6 @@ export default function Body({
       {/* mousys */}
       <Mousy></Mousy>
       <Providers>{children}</Providers>
-      <Footer />
     </body>
   );
 }
