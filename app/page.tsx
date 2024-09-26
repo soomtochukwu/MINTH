@@ -157,9 +157,6 @@ export default function Home() {
                 if (imageUrl) {
                   (
                     document.getElementById("imagePreview") as HTMLElement
-                  ).style.transition = "0s";
-                  (
-                    document.getElementById("imagePreview") as HTMLElement
                   ).style.width = "0px";
                   (
                     document.getElementById("imagePreview") as HTMLElement
@@ -188,9 +185,6 @@ export default function Home() {
 
                 // setImageUrl(val);
                 if (imageUrl) {
-                  (
-                    document.getElementById("imagePreview") as HTMLElement
-                  ).style.transition = "0s";
                   (
                     document.getElementById("imagePreview") as HTMLElement
                   ).style.width = "0px";
