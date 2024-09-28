@@ -5,15 +5,18 @@
 import { useEffect, useState } from "react";
 import {
   useAccount,
-  useConnect,
+  // useEstimateGas,
   useWatchContractEvent,
   useWriteContract,
 } from "wagmi";
 import { Minth_abi, Minth_address } from "./utils/var";
-import { injected } from "wagmi/connectors";
+
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 import { PinataSDK } from "pinata";
 import Link from "next/link";
 import Progress from "./components/Progress";
+import axios from "axios";
 
 export default function Home() {
   const //
@@ -22,7 +25,6 @@ export default function Home() {
     [stage, setStage] = useState<string | null>(null),
     { address, isConnected } = useAccount(),
     { writeContractAsync } = useWriteContract(),
-    { connect } = useConnect(),
     pinata = new PinataSDK({
       pinataJwt: process.env.NEXT_PUBLIC_JWT,
       pinataGateway: process.env.NEXT_PUBLIC_gate,
@@ -108,7 +110,13 @@ export default function Home() {
         return 0;
       }
     };
-
+  //
+  /*  useEstimateGas({
+    to: "0x884c8cC437bD61C7d7Ed04720F60d657E0eCdbE3",
+    data: contract.encodeFunctionData("safeMint", [
+      "bafkreieazyy36z6gdapq5zbusfkdu2amnw56hzxoekviu32eddm3mr2yiu",
+    ]),
+  }); */
   //
   useWatchContractEvent({
     address: Minth_address,
@@ -135,7 +143,7 @@ export default function Home() {
       imgPre.style.width = "100%";
       imgPre.style.height = "100%";
     }
-  }, [image, imageUrl]);
+  }, [image]);
   return (
     <div className="h-screen">
       <div className="backdrop-blur-md text-center md:fixed w-full font-bold p-6 text-2xl md:text-5xl font-sans">
@@ -184,7 +192,7 @@ export default function Home() {
               id="url"
               onInput={async (e) => {
                 const val = e.currentTarget.value;
-                // setImageUrl(val);
+                setImageUrl(val);
 
                 // setImageUrl(val);
                 if (imageUrl) {
@@ -198,34 +206,42 @@ export default function Home() {
                     document.getElementById("imagePreview") as HTMLElement
                   ).style.height = "0px";
                 }
-                const response = await fetch(val),
-                  blob = await response.blob(),
-                  file = new File(
-                    [blob],
-                    // @ts-ignore
-                    `${val.slice(val.lastIndexOf("/") + 1)}`,
-                    { type: blob.type }
-                  );
-                setImageUrl(val);
-                setImage(file);
-                console.log(file);
+                await axios
+                  .get(val, {
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                  })
+                  .then((res) => {
+                    const file = new File(
+                      [res.data],
+                      `${val.slice(val.lastIndexOf("/") + 1)}`,
+                      { type: res.data.type }
+                    );
+                    setImageUrl(val);
+                    setImage(file);
+                    console.log(file);
+                  })
+                  .catch((e) => {
+                    alert(e.message);
+                  });
               }}
             />
+          </div>
+          <div id="">
+            <ConnectButton chainStatus={"icon"} accountStatus={"avatar"} />
           </div>
           <button
             onClick={async () => {
               if (!imageUrl) {
                 alert("YOU MUST PROVIDE AN IMAGE");
               }
+              //
+              //
               if (address && isConnected) {
                 Minth();
               } else {
-                if (!imageUrl) {
-                  alert("YOU MUST PROVIDE AN IMAGE");
-
-                  setImageUrl("connect wallet and try again");
-                  console.log(await connect({ connector: injected() }));
-                }
+                alert("Please connect your wallet and try again");
               }
             }}
             className="p-3 px-10 rounded-md active:scale-95 bg-gray-700 text-white"

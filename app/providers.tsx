@@ -13,7 +13,7 @@ import {
   trustWallet,
   ledgerWallet,
 } from "@rainbow-me/rainbowkit/wallets";
-import { sepolia, liskSepolia } from "wagmi/chains";
+import { sepolia, klaytnBaobab } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
 
@@ -31,7 +31,7 @@ const config = getDefaultConfig({
   ],
   chains: [
     sepolia,
-    liskSepolia,
+    klaytnBaobab,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [sepolia] : []),
   ],
   ssr: true,
@@ -45,8 +45,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
           theme={darkTheme({
-            accentColor: "#005500",
-            accentColorForeground: "white",
+            accentColor: "#555555",
+            accentColorForeground: "#00ff00",
             fontStack: "system",
             overlayBlur: "small",
             borderRadius: "large",
