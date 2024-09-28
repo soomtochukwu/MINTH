@@ -31,13 +31,11 @@ export default function Home() {
     }),
     pinImage = async () => {
       try {
-        console.log("> pinning");
         setStage("pinning");
 
         const //
           NFT_image = await (async () => {
             const pin = await pinata.upload.file(image as File);
-            await console.log("> 1st stage!");
             setStage("1st stage");
             await console.log(pin.IpfsHash);
             return pin;
@@ -56,7 +54,7 @@ export default function Home() {
             description: `Minted for ${address} by Minth`,
             // @ts-ignore
             image: `ipfs://${NFT_image.IpfsHash}`,
-            name: address?.slice(0, 8),
+            name: address?.slice(0, 6),
           },
           metadataBlob = new Blob([JSON.stringify(metadata)], {
             type: "application/json",
@@ -70,10 +68,8 @@ export default function Home() {
           ),
           NFT_image_Metadata = await (async () => {
             const pin = await pinata.upload.file(file2);
-            console.log("> 2nd stage!");
             setStage("2nd stage");
             await console.log(pin.IpfsHash);
-            console.log("> pinned!");
             setStage("pinned");
             return pin;
           })();
