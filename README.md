@@ -4,6 +4,6 @@
 
 Minth is an ERC721 smart contract frontend that allows you to pin your images to the IPFS and mint them to your wallet, all with one click of a button.
 
-<a href="https://minth.vercel.app">
+<a href="https://www.minth.xyz/">
 click here to check it out
 </a>
